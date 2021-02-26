@@ -1,30 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="Description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css"/>
+    <!--    Gitalk评论插件-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
 </head>
 <body>
 <nav>
-<a href="#/README">首页</a>
-<a href="#/ab我c">ab我c</a>
+    <a href="#">首页</a>
 </nav>
-  <div id="app"></div>
-  <script>
+<div id="app">Please wait...</div>
+<script>
+
+
     window.$docsify = {
-	  coverpage: true,
-	  onlyCover: true,
-	  loadSidebar: true,
-	  subMaxLevel: 3,
-      name: '',
-      repo: ''
+        //设置封面
+        coverpage: true,
+        onlyCover: true,
+        //左侧显示标题只显示页内的2级  # ##
+        loadSidebar: true,
+        subMaxLevel: 2,
+        //外链打卡方式
+        externalLinkTarget: '_blank',
+        //主题颜色
+        // themeColor: '#c30aff',
+        name: '',
+        repo: '',
+
+        auto2top: true,
+        toc: {
+            scope: '.markdown-section',
+            headings: 'h1, h2, h3, h4',
+            title: '快速跳转',
+        },
+
+        //站内搜索
+        search: 'auto',
+        search: {
+            maxAge: 86400000,
+            paths: '/',
+            placeholder: '搜索...',
+            noData: '未找到结果，换个搜索词试试？',
+            namespace: 'website-1',
+        },
+        //上一篇 下一篇
+        pagination: {
+            previousText: '上一篇',
+            nextText: '下一篇',
+            crossChapter: true,
+            crossChapterText: true,
+        },
+
+        copyCode: {
+            // buttonText : 'buttonText:String',
+            // errorText : 'errorText:String',
+            // successText: 'successText:String'
+
+            buttonText: {
+                '/zh-cn/': '点击复制',
+                '/ru/': 'Скопировать в буфер обмена',
+                '/de-de/': 'Klicken Sie zum Kopieren',
+                '/es/': 'Haga clic para copiar',
+                '/': 'Copy to clipboard'
+            },
+            errorText: {
+                '/zh-cn/': '错误',
+                '/ru/': 'ошибка',
+                '/': 'Error'
+            },
+            successText: {
+                '/zh-cn/': '复制',
+                '/ru/': 'Скопировано',
+                '/de-de/': 'Kopiert',
+                '/es/': 'Copiado',
+                '/': 'Copied'
+            }
+        }
+
     }
-  </script>
-  <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    // gittalk评论插件
+    var gitalk = new Gitalk({
+        clientID: 'Github Application Client ID',
+        clientSecret: 'Github Application Client Secret',
+        repo: 'Github repo',
+        owner: 'Github repo owner',
+        admin: ['Github repo collaborators, only these guys can initialize github issues'],
+        // facebook-like distraction free mode
+        distractionFreeMode: false
+    })
+
+
+</script>
+
+<!-- CDN files for docsify.-->
+<!-- <script src="js/docsify.js?v=1.1.0"></script> -->
+<script src="//cdn.jsdelivr.net/npm/docsify@latest/lib/docsify.min.js"></script>
+<!-- CDN files for docsify plugins.-->
+<script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+<script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+<script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+<!-- CDN files for code highlight such as docsify-katex etc.-->
+<script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+<!-- or <script src="//cdn.jsdelivr.net/gh/upupming/docsify-katex/dist/docsify-katex.js"></script> -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+<script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-makefile.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-sql.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-json.min.js" async></script>
+
 </body>
 </html>
