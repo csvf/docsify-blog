@@ -1,4 +1,10 @@
-- 根目录
-  - [java基础](java/01java基础)
-  - [juc](java/02juc)
-  - [java8](java/03java8)
+- [主页](helloword)
+- 笔记vs面试
+  - [java基础](java/01java基础 "java入门")
+  - [juc](java/02juc "并发编程")
+  - [java8](java/03java8 "jdk1.8变化")
+- 随笔归档
+- todo清单
+- 个人简历
+- 赞助
+  
