@@ -8,8 +8,9 @@
   - [代码规范](java/06代码规范 "代码规范")
 - 设计模式
 - 工具安装
-  - [jdk](java/07jdk安装 "jdk安装")
+  - [JDK](java/07jdk安装 "jdk安装")
   - [Tomcat](java/08tomcat安装 "tomcat安装")
+  - [MAVEN](java/09MAVEN安装 "MAVEN安装")
 - 源码解读
 - 项目管理
 - 随笔归档
