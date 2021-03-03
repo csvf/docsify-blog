@@ -72,3 +72,44 @@ JDK安装完后自动跳出JRE的安装窗口
 2. 输入java 查看是否安装成功，若出现下图提醒则代表没问题
 
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303134858.png)
+
+## 四、配置环境变量
+1. 桌面-----计算机----右键----属性------点击左边中间位置的高级系统设置
+
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303144914.png)
+
+2. 点击环境变量
+
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303144952.png)
+
+3. 在上面的窗口下新建JAVA_HOME,变量值为D盘jdk的安装目录;
+
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303145057.png)
+
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303145130.png)
+
+4. 创建CLASSPATH,变量值为 英文的点（中文的句号） .;%JAVA_HOME%\lib; 例:
+
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303150311.png)
+
+5. 在系统变量中找到Path变量 ，在变量值的最前面加上JDK的bin目录并加上一个英文的分号例如（;）;%JAVA_HOME%\bin;
+
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303145229.png)
+
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303150535.png)
+
+6. 测试：
+
+Win键（ctrl和alt之间的键位）+  r 进入运行
+ 
+输入cmd 进入界面
+
+```
+	1、运行java
+	2、运行javac
+```
+
+输入javac出现以下界面配置成功
+
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303145408.png)
+
