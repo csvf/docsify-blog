@@ -3,6 +3,10 @@
   - [java基础](java/01java基础 "java入门")
   - [juc](java/02juc "并发编程")
   - [java8](java/03java8 "jdk1.8变化")
+- 设计模式
+- 工具安装
+- 源码解读
+- 项目管理
 - 随笔归档
 - todo清单
 - 个人简历
