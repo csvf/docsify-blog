@@ -1,7 +1,5 @@
 # Jdk安装图文教程
-
-[toc]
-
+文章目录详细见右边栏
 ## 一、前提
 
 准备一台windows 10 （x64位） 系统电脑。
@@ -88,15 +86,15 @@ JDK安装完后自动跳出JRE的安装窗口
 
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303145130.png)
 
-4. 创建CLASSPATH,变量值为 英文的点（中文的句号） .;%JAVA_HOME%\lib; 例:
+4. 创建CLASSPATH,变量值为 英文的点（中文的句号）例 .;%JAVA_HOME%\lib;
 
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303150311.png)
 
-5. 在系统变量中找到Path变量 ，在变量值的最前面加上JDK的bin目录并加上一个英文的分号例如（;）;%JAVA_HOME%\bin;
+5. 在系统变量中找到Path变量 ，在变量值的最前面加上JDK的bin目录并加上一个英文的分号 例 ;%JAVA_HOME%\bin;
 
-![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303145229.png)
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303151211.png)
 
-![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303150535.png)
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303151404.png)
 
 6. 测试：
 
