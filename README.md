@@ -17,7 +17,7 @@ docsify init ./docs
 ```
 本地预览：
 ```
-docsify serve docs
+docsify serve 
 ```
 进入http://localhost:3000就能看到效果咯！
 
