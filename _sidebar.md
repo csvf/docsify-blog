@@ -2,7 +2,10 @@
 - 笔记vs面试
   - [java基础](java/01java基础 "java入门")
   - [juc](java/02juc "并发编程")
-  - [java8](java/03java8 "jdk1.8变化")
+  - [java8](java/03java8 "jdk1.8特性")
+  - [guava](java/04guava "guava编程")
+  - [编码技巧](java/05编码技巧 "编码技巧")
+  - [代码规范](java/06代码规范 "代码规范")
 - 设计模式
 - 工具安装
 - 源码解读
