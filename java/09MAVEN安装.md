@@ -1,7 +1,6 @@
 # Maven安装配置教程
-目录详细见右边栏
 ## 一、前言
-Maven是一个项目管理和综合工具，能很方便的管理JAR文件。  
+Maven是一个项目管理和综合工具，能很方便的管理JAR文件。
 ## 二、安装
 ### 1、下载
 Maven官网下载地址: [https://maven.apache.org/download.cgi#](https://maven.apache.org/download.cgi#)  

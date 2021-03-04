@@ -11,6 +11,8 @@
   - [JDK](java/07jdk安装 "jdk安装")
   - [Tomcat](java/08tomcat安装 "tomcat安装")
   - [MAVEN](java/09MAVEN安装 "MAVEN安装")
+  - [Git](java/10Git安装 "Git安装")
+  - [TortoiseGit](java/11TortoiseGit安装 "TortoiseGit安装")
 - 源码解读
 - 项目管理
 - 随笔归档
