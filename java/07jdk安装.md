@@ -1,11 +1,11 @@
-# JDK安装图文教程
+# JDK、JRE安装配置图文教程
 目录详细见右边栏
 ## 一、前言
 本文是关于如何安装JDK以及怎样以及怎样配置使用的文档。请准备一台windows 10 （x64位） 系统电脑。  
 ## 二、安装
 jdk官网下载地址: [https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)   
 ### 1、下载
-根据操作系统下载对应的最新版本 download标签有详细展示，我是windows10 64位 下载下面红框的版本  
+根据操作系统下载对应的对应版本，本人使用jdk1.8。 download标签有详细展示，我是windows10 64位 下载下面红框的版本  
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/01.png)  
 勾选复选框，点击开始Download绿色模块开始下载，（注没有账号的需要先注册账号）。  
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303133429.png)  
