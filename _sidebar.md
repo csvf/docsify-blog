@@ -13,6 +13,7 @@
   - [MAVEN](java/09MAVEN安装 "MAVEN安装")
   - [Git](java/10Git安装 "Git安装")
   - [TortoiseGit](java/11TortoiseGit安装 "TortoiseGit安装")
+  - [SSH秘钥配置](java/12SSH秘钥配置 "SSH秘钥配置")
 - 源码解读
 - 项目管理
 - 随笔归档
