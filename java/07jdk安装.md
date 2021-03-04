@@ -55,7 +55,10 @@ Win键（ctrl和alt之间的键位）+  r 进入运行
 ```
 	1、运行java
 	2、运行javac
+    3、运行java -version
 ```
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210304165903.png)  
 输入javac出现以下界面配置成功  
-![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303145408.png)
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303145408.png)  
+
 
