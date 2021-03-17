@@ -221,11 +221,11 @@ LocalDate 可以使用 `plusDays minusHours()`等方法 对日期和时间进行
 ## 单元测试Junit  
 @Test  
 使用assert断言：    
-      断言相等 assertEquals(100,x)  100表示期望的结果， x表示测试的方法及传入的参数  
-      断言数组相等：assertArrayEquals({1,2,3},x)  
-      断言浮点数相等： assertEquals(3.1414,x,0.0001)  //有精度损失，所以增加一个0.0001的误差值  
-      断言为true或者false  assertTrue(x>0)  assertFalse(x<0)   
-      断言为Null    assertNull(x)  
+      断言相等 `assertEquals(100,x)`  100表示期望的结果， x表示测试的方法及传入的参数  
+      断言数组相等：`assertArrayEquals({1,2,3},x)`  
+      断言浮点数相等： `assertEquals(3.1414,x,0.0001)`  //有精度损失，所以增加一个0.0001的误差值  
+      断言为true或者false  `assertTrue(x>0)`  `assertFalse(x<0)`   
+      断言为Null    `assertNull(x)`    
       
  @Before  @After  注解可以在执行@test测试方法之前 初始化资源方法， 在测试之后释放资源方法    
 （基于实例层面 ，变量定义成成员变量 ，每次单元测试都是执行不同的实例）  
@@ -272,7 +272,9 @@ if(matcher.matches()){
 则正则表达式改为  `"^(\d+?)(0*)$"`  即可改为非贪婪模式 匹配到 `"123"`  `"0000"` 利用 分组匹配即可分别获取到。  
 `split("正则表达式")` 对字符串进行分割   利用正则表达式 以  `空格` `，` `;` 等信息进行字符串分割。  
 `find` 用正则的方式搜索字符串。  搜索到想要的字符  
-`replaceAll("正则表达式","") `方式来进行替换字串。  例如：以空格分割的一串文字都 加上`<b>单字</b>` 加错  
+`replaceAll("正则表达式","") `方式来进行替换字串。  例如：以空格分割的一串文字都 加上`<b>单字</b>` 加粗  
+
+  
 
 
 
