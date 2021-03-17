@@ -52,10 +52,10 @@ JDK安装完后自动跳出JRE的安装窗口
 6. 测试： 
 Win键（ctrl和alt之间的键位）+  r 进入运行   
 输入cmd 进入界面  
-```
-	1、运行java
-	2、运行javac
-    3、运行java -version
+```shell script
+	java
+	javac
+    java -version
 ```
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210304165903.png)  
 输入javac出现以下界面配置成功  

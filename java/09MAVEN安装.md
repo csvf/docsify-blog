@@ -26,12 +26,12 @@ MAVEN配置成功
 1. localRepository：构建系统本地仓库的路径,其默认值：~/.m2/repository  
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303162122.png)  
 改为自己的本地仓库地址 
-```
+```xml
  <localRepository>D:\maven_jar</localRepository>
 ```  
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303162334.png)   
 远程仓库改为阿里云的镜像  
-```
+```xml
   <mirrors>
        <mirror>
             <id>nexus-aliyun</id>
@@ -66,7 +66,7 @@ Local repository：D: \apache-maven-3.5.3 \.m2\repository
 ### 3、maven常用命令
 也可在此处输入命令：  
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210303163041.png)  
-```
+```shell script
 创建Maven项目：mvn archetype:generate  
 编译源代码： mvn compile   
 清除产生的项目：mvn clean   
