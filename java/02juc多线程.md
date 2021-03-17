@@ -1,6 +1,34 @@
 # 多线程-基础知识分享
 ## 前言
 !>主要内容是: 自定义线程池、以及浅谈线程的死锁.
+## java多线程
+java 语言内置多线程支持，一个java程序实际上是一个JVM进程， jvm用一个主线程来执行main()方法， 在main方法中 又可以启动多个线程。  
+####  线程和进程的区别
+* 线程是比进程更小的运行单位： 多个线程可以共享一个进程 堆和方法共享区，同时 线程有拥有自己独立的 本地方法栈，虚拟机方法栈和程序计数器。  
+* 一个进程包含一个或多个线程。  
+* 线程是由操作系统调度的最小任务单位  
+* 多进程的之间通信 比多线程间通信慢， 但是多进程比多线程稳定性更高。  
+
+#### 定义一个新线程
+*  方式一：继承extends Thread  重写 run()   创建实例 调用 .start() 方法来启动定义的新线程  
+*  方式二：实现 runnable 接口  重写 run()   创建runnable实例 ，创建Thread实例并且把创建的runnable传入Thread中， 调用 .start()方法来启动线程。  
+
+#### 线程的状态及执行
+- 线程的执行没有先后顺序
+- Thread.sleep(100) 当前线程暂停100毫秒
+- 多线程是交替运行 无法确定先后，  如果要等待一个线程执行完 则调用 .join()方法来等一个线程执行完。
+- run()方法是 java虚拟机 自动调用的，  源码可知 run是 native修饰的 只能被 jvm 调用。
+- 在main方法中 直接调用run()并不会启动新线程。
+- 线程的6种状态 ：
+ > new         创建       创建Thread实例    
+   runnable    运行中    执行start()方法   
+   Bloacked    阻塞  
+   waiting     等待  wait() 等待其他线程来notify    
+   timed waiting 计时等待 sleep(1000)//休息一秒自动启动  
+   Terminated  已终止  run()方法结束 （正常结束，抛出异常， Thread.stop()） 三种结束情况  
+
+
+
 ## 线程及线程池
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210305163037.png)  
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210305163103.png)  
