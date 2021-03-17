@@ -106,7 +106,21 @@ Java 堆是被所有线程共享的一块内存区域，在虚拟机启动时创
 
 Java 堆可以处于物理上不连续的内存空间中，只要逻辑上是连续的即可，   
 当前主流的虚拟机都是按照可扩展来实现的（通过 -Xmx 和 -Xms 控制）。   
-如果在堆中没有内存完成实例分配，并且堆也无法再扩展时，将会抛出 OutOfMemoryError 异常。
+如果在堆中没有内存完成实例分配，并且堆也无法再扩展时，将会抛出 OutOfMemoryError 异常。  
+
+为了支持垃圾收集，堆被分为三个部分：  
+年轻代 ： 常常又被划分为Eden区和Survivor（From Survivor To Survivor）区    
+(Eden空间、From Survivor空间、To Survivor空间（空间分配比例是8：1：1）    
+老年代  
+永久代 （jdk 8已移除永久代，如下图）  
+
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/_20210317162255.png)
+
+
+
+所有新创建的Object 都将会存储在新生代Yong Generation中。  
+如果Young Generation的数据在一次或多次GC后存活下来，那么将被转移到OldGeneration。新的Object总是创建在Eden Space。  
+
 
 - 方法区 
 
