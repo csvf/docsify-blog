@@ -29,6 +29,90 @@ Bloacked|阻塞|
 waiting|等待|wait() 等待其他线程来notify  
 timed waiting|计时等待|sleep(1000)//休息一秒自动启动
 Terminated|已终止|run()方法结束 （正常结束，抛出异常， Thread.stop()） 三种结束情况
+###  中断线程：
+例如: 下载视频文件    
+其他线程给需要中断的线程发一个信号， 在主线程main 方法中 调用 t.interrupt 方法来中断t线程，  
+在t线程的 run方法中 获取 isInterrupt() 中断状态 线程等待时获取到 interruptException即终止线程。   
+或者在需要终止的线程中 定义一个 volatile boolean  变量 。在run()方法中判断为true继续执行，false时终止。  
+在main主线程中 修改 volatile变量 ， 定义的变量终止执行。  
+### volatile 
+关键是用来修饰线程间共享变量的。 每次访问变量总是获取主内存的最新值， 每次修改变量后，立刻回写到主内存中。  
+### 守护线程 ： 
+t.setDaemon(true) 把一个线程变为守护线程， 守护线程是为其他线程服务的线程， Jvm中当非守护线程执行完毕后，虚拟机退出。    
+守护线程不能持有资源，如打开文件等。  
+### 多线程同步：
+多线程同时修改变量时会造成逻辑错误需要使用`synchronized`进行加锁   
+    1. 加锁方式一：使用synchronized对需要同步的语句块进行加锁，  
+不同的线程访问同一变量时 需要对同一个实例对象加锁，即同一把锁   
+`synchronized(Main.Object){ //加锁语句块}` 原子操作不需要加锁       
+例如在Main.java中定义一个静态变量 Object    
+    2. 加锁方式二： 使用synchronized 修饰方法，把方法变为同步代码块 该方法同一时刻只允许一个线程访问。  
+原子操作不需要加锁， 如 基本类型赋值（long 和 double ）除外 ； 对引用类型赋值   
+### 线程安全的类 synchronized
+`LocalDate`  `String`  `Integer` 等不能被继承的类成员变量一旦创建不能更改，只能读 不能写 不用同步   
+`Math` 等没有成员变量的类， 没有成员变量 
+正确使用`synchronized`方法的类 如`StringBuffer`  
+### 非线程安全的类:  
+不能在多线程中共享实例并且修改 `例如ArrayList`, 可以以只读的方式在多线程中共享。  
+### 死锁：
+java的线程锁是`可重入的锁`，  即 在同步代码块中   仍然可以设置对同一实例的同步代码块   
+例如:    
+ ```java
+synchronized(Main.Object){
+    system.out.println("获得同步锁：ddd");
+    synchronized(Main.Object){
+     System.out.println("获得同步锁：重入ddd")
+    }
+}
+```
+>当两个线程分别获取了不同的锁，又同时等待被对方占用的锁的时 就产生了**死锁**。 死锁无法解除，只能强制结束JVM进程。
+
+线程1
+```java
+synchronized(Main.ObjectA){
+    system.out.println("获得同步锁：ddd");
+    synchronized(Main.ObjectB){
+     System.out.println("获得同步锁：重入ddd")
+    }
+}
+```
+线程2
+```java
+synchronized(Main.ObjectB){
+  system.out.println("获得同步锁：ddd");
+  synchronized(Main.ObjectA){
+     System.out.println("获得同步锁：重入ddd")
+  }
+}
+```
+- 线程1 获得  ObjectA锁  .... 线程2获得 ObjectB锁   
+- 线程1往下执行 		..... 线程2往下执行  
+- 线程1试图获取ObjectB锁 ...  线程2试图获取ObjectA锁  
+- 由于ObjectB锁被 线程2占用， 导致线程1处于等待状态；  
+- ObjectA锁被线程1占用，导致线程2处于等待状态。 两个线程无限制的等待下去就产生了死锁。  
+ >避免死锁的方法： 多线程获取锁的顺序必须完全一致。
+
+### wait、notify 
+用于多线程协调运行 ：  
+必须在已获得锁 synchronized的对象上 执行 wait /notify  notifyAll 方法     
+在 synchronized代码块中调用 wait  notify  notifyAll 方法  ， wait 通常在while循环中使用。  
+wait 释放锁 进入等待状态，被唤醒后需要重新获取锁才能继续执行。    
+notify 用来唤醒其他等待线程， 可能有多个线程在等待， 保险起见 使用notifyAll 唤醒所有等待的线程。  
+- 应用场景:  线程A 向Taskqueue队列中写入内容，  线程B不断的从TaskQueue中读取信息，    
+当队列中的元素为空时 线程B进入等待状态， 线程A写入队列后唤醒B   
+###  锁Lock:
+java.util.concurrent包是jdk1.5引入的    
+ 第一步 实例化     
+`Lock lock = new  ReentrantLock();`  
+ 第二步 获取锁 可能会失败 ，要放在try 同步块之前。
+`lock.lock();`  
+ 第三步   try{ 
+		   //同步块
+		   }finally{ 
+		    lock.unlock();
+		   }
+  ReentrantLock() 可以替代 synchronized 
+
 
 ## 线程及线程池
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210305163037.png)  
