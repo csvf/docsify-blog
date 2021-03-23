@@ -173,6 +173,19 @@ Atomic 通常用于多线安全的序列生成器，计数器，累加器。
 |长整型Array |AtomicLongArray |
 |对象 |AtomicReference |
 
+### 多线程-线程池
+!>线程池可以用来执行大量的小任务:    
+线程在线程池中等待，如果线程池内有线程处于空闲，空闲线程直接执行任务，如果线程处于忙碌状态，则任务放入队列中等待。  
+
+`jdk`中使用 `ExecuteService` 来表示线程池：  
+`ExecutorService es = Executors.newFixedThreadPool(4);`创建固定大小的线程池。    
+* `FixedThreadPool` 线程数固定  
+* `CachedThreadPool` 根据任务数动态调整线程数。   
+设置最大线程数   `ThreadPoolExecutor(0,10,60L,);` 第二个参数设置最大的线程数。    
+* `SingleThreadExecutor`单线程    
+`es.submit(new Thread());` 提交一个任务到线程池。   
+`es.shutdown()`关闭线程池。   
+
 
 
 
