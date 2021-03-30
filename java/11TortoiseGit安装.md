@@ -1,5 +1,5 @@
 # TortoiseGit安装图文教程
-## 一、前提
+## 一、前言
 ### 1、准备git环境
 因为TortoiseGit 只是一个程序壳,必须依赖一个 Git Core,也就是Git安装与配置中我们安装的 Git.   
 所以安装前请确定已完成Git安装与配置的操作。  参考： [Git安装图文教程](java/10Git安装)  
