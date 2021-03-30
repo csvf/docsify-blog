@@ -45,4 +45,10 @@
 14. 在要克隆代码所在本地文件夹中,右键Git clone ；URL:为Gitlab中项目SSH地址下载路径，点击ok，
 即可下载成功。  
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210304181913.png)  
-![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210304181928.png)  
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210304181928.png)   
+## 三、git常用命令
+1. 修改提交git时，提交记录的用户名  
+* 找到project项目根路径，右键`git bash here`;  
+* `git config`  
+* `git config user.name  "你的名字"` ;   //这时候会显示已更改的名字  
+*  也可以在 `idea` 控制台的`Terminal` 选项卡命令窗下执行以上步骤。
