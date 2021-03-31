@@ -13,6 +13,23 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        // gittalk评论插件
+        const gitalk = new Gitalk({
+            clientID: 'e8f59aa5f27ae5dba9a6',
+            clientSecret: '0d7e74bc3ededd1d0b69726818b98e6069ff842c',
+            repo: 'docsify-comment',
+            owner: 'csvf',
+            admin: ['csvf'],
+            // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+            // 50个字符串则会报错.
+            id: (location.pathname).split("/").pop().substring(0, 49),
+            enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter)
+            // facebook-like distraction free mode
+            distractionFreeMode: true
+        })
+        gitalk.render('gitalk-container');
+    </script>
 </head>
 <body>
 <nav>
@@ -26,7 +43,7 @@
         onlyCover: true,
         //左侧显示标题只显示页内的3级  # ##
         loadSidebar: true,
-
+        ga: "UA-XXXXX-Y",
 
         subMaxLevel: 3,
         //外链打卡方式
@@ -93,25 +110,8 @@
             }
         }
 
-    }
+    };
 
-
-
-    // gittalk评论插件
-    const gitalk = new Gitalk({
-        clientID: 'e8f59aa5f27ae5dba9a6',
-        clientSecret: '0d7e74bc3ededd1d0b69726818b98e6069ff842c',
-        repo: 'docsify-comment',
-        owner: 'csvf',
-        admin: ['csvf'],
-        // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
-        // 50个字符串则会报错.
-        id: (location.pathname).split("/").pop().substring(0, 49),
-        enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter)
-        // facebook-like distraction free mode
-        distractionFreeMode: true
-    })
-    gitalk.render('gitalk-container');
 </script>
 
 <!-- CDN files for docsify.-->
@@ -140,6 +140,15 @@
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-java.min.js"></script>
 
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
 <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+
+
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
+
+<div id="gitalk-container"></div>
 </body>
 </html>
