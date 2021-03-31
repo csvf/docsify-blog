@@ -5,11 +5,11 @@
     <title>Document</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="description" content="Description">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-    <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+<!--    <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">-->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css">
+    <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
     <style>
         .markdown-section a:not(:hover) {
             text-decoration: none;
@@ -24,18 +24,18 @@
             margin-left: 12px;
         }
         section.content {
-            display: block;
+            /*display: block;*/
             /*overflow: auto;*/
-            padding-top: 50px;
+            /*padding-top: 50px;*/
         }
         .page_toc {
             right: 20px;
         }
         .markdown-section {
-            max-width: 70%;
+            /*max-width: 70%;*/
         }
         #gitalk-container {
-            margin: 0px 20px 0 20px !important;
+            /*margin: 0px 20px 0 20px !important;*/
         }
     </style>
 </head>
@@ -48,11 +48,14 @@
 <script>
     window.$docsify = {
         //设置封面
-        coverpage: true,
+        coverpage: true,   //激活封面功能。如果为true，则会从中加载_coverpage.md。
         onlyCover: true,
-        //左侧显示标题只显示页内的3级  # ##
-        loadSidebar: true,
+        subMaxLevel: 3,    //在自定义边栏中添加目录（TOC）
+        loadSidebar: true, //_sidebar.md如果为真，则从_sidebar.md文件加载边栏，否则从指定的路径加载。
         ga: "UA-XXXXX-Y",
+        loadNavbar: true,  //_navbar.md如果为真，则从_navbar.md文件加载navbar ，否则从指定的路径加载。
+        mergeNavbar: true, //Navbar将在小屏幕上与侧边栏合并。
+        formatUpdated: '{MM}/{DD} {HH}:{mm}',
         plugins: [
             function (hook, vm) {
                 hook.mounted(function() {
@@ -70,20 +73,20 @@
                 })
             }
         ],
-        subMaxLevel: 3,
-        //外链打卡方式
-        externalLinkTarget: '_blank',
-        //主题颜色
-        // themeColor: '#c30aff',
+
+
+        externalLinkTarget: '_blank',  //外链打卡方式
+
+        // themeColor: '#c30aff',  //主题颜色
         name: '',
         repo: 'https://github.com/csvf/docsify-blog.git',
 
-        auto2top: true,
-        toc: {
-            scope: '.markdown-section',
-            headings: 'h1, h2, h3, h4',
-            title: '目 录',
-        },
+        auto2top: true, //当路线改变时，滚动到屏幕的顶部
+        // toc: {
+        //     scope: '.markdown-section',
+        //     headings: 'h1, h2, h3, h4',
+        //     title: '目 录',
+        // },
 
         //站内搜索
         search: 'auto',
@@ -144,7 +147,7 @@
 <script src="//cdn.jsdelivr.net/npm/docsify@latest/lib/docsify.min.js"></script>
 <!-- CDN files for docsify plugins.-->
 <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-<script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
+<!--<script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>-->
 <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
 <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
 <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
