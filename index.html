@@ -5,39 +5,16 @@
     <title>Document</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="description" content="Description">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-<!--    <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css"/>
-    <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
-    <style>
-        .markdown-section a:not(:hover) {
-            text-decoration: none;
-        }
-        .sidebar {
-            padding-top: 20px;
-        }
-        .sidebar h1 {
-            font-weight: normal;
-        }
-        .sidebar blockquote {
-            margin-left: 12px;
-        }
-        section.content {
-            /*display: block;*/
-            /*overflow: auto;*/
-            /*padding-top: 50px;*/
-        }
-        .page_toc {
-            right: 20px;
-        }
-        .markdown-section {
-            /*max-width: 70%;*/
-        }
-        #gitalk-container {
-            /*margin: 0px 20px 0 20px !important;*/
-        }
-    </style>
+    <!--    Gitalk评论插件-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+
+
+
 </head>
 <body>
 <nav>
@@ -47,46 +24,23 @@
 </body>
 <script>
     window.$docsify = {
-        //设置封面
-        coverpage: true,   //激活封面功能。如果为true，则会从中加载_coverpage.md。
+        coverpage: true, //激活封面功能。如果为true，则会从中加载_coverpage.md
         onlyCover: true,
-        subMaxLevel: 3,    //在自定义边栏中添加目录（TOC）
-        loadSidebar: true, //_sidebar.md如果为真，则从_sidebar.md文件加载边栏，否则从指定的路径加载。
-        ga: "UA-XXXXX-Y",
-        loadNavbar: true,  //_navbar.md如果为真，则从_navbar.md文件加载navbar ，否则从指定的路径加载。
-        mergeNavbar: true, //Navbar将在小屏幕上与侧边栏合并。
-        formatUpdated: '{MM}/{DD} {HH}:{mm}',
-        plugins: [
-            function (hook, vm) {
-                hook.mounted(function() {
-                    var div = Docsify.dom.create('div')
-                    div.id = 'gitalk-container'
-                    var main = Docsify.dom.getNode('#main')
-                    div.style = `width: ${main.clientWidth}px; margin: 0 20px 0 20px;`
-                    Docsify.dom.appendTo(Docsify.dom.find('.content'), div)
-                })
+        loadSidebar: true, //_sidebar.md如果为真，则从_sidebar.md文件加载边栏，否则从指定的路径加载
+        subMaxLevel: 3, //在自定义边栏中添加目录（TOC） 3级
 
-                hook.doneEach(function() {
-                    var el = document.getElementById('gitalk-container')
-                    while(el.hasChildNodes()) el.removeChild(el.firstChild)
-                    gitalk.render('gitalk-container')
-                })
-            }
-        ],
+        externalLinkTarget: '_blank', //外链打卡方式
 
-
-        externalLinkTarget: '_blank',  //外链打卡方式
-
-        // themeColor: '#c30aff',  //主题颜色
+        // themeColor: '#c30aff', //主题颜色
         name: '',
         repo: 'https://github.com/csvf/docsify-blog.git',
 
         auto2top: true, //当路线改变时，滚动到屏幕的顶部
-        // toc: {
-        //     scope: '.markdown-section',
-        //     headings: 'h1, h2, h3, h4',
-        //     title: '目 录',
-        // },
+        toc: {
+            scope: '.markdown-section',
+            headings: 'h1, h2, h3, h4',
+            title: '目 录',
+        },
 
         //站内搜索
         search: 'auto',
@@ -136,10 +90,36 @@
                 '/es/': 'Copiado',
                 '/': 'Copied'
             }
-        }
+        },
+        loadNavbar: false,  //_navbar.md如果为真，则从_navbar.md文件加载navbar ，否则从指定的路径加载
+        mergeNavbar: false, //Navbar将在小屏幕上与侧边栏合并
+        formatUpdated: '{MM}/{DD} {HH}:{mm}',
+        plugins: [
+            function (hook, vm) {
+                hook.beforeEach(function (html) {
+                    return html
+                        + '<hr/>'
+                        + '上次更新：{docsify-updated} '
+                })
+            },
+            function (hook, vm) {
+                hook.mounted(function() {
+                    var div = Docsify.dom.create('div')
+                    div.id = 'gitalk-container'
+                    var main = Docsify.dom.getNode('#main')
+                    div.style = `width: ${main.clientWidth}px; margin: 0 20px 0 20px;`
+                    Docsify.dom.appendTo(Docsify.dom.find('.content'), div)
+                })
+
+                hook.doneEach(function() {
+                    var el = document.getElementById('gitalk-container')
+                    while(el.hasChildNodes()) el.removeChild(el.firstChild)
+                    gitalk.render('gitalk-container')
+                })
+            }
+        ]
 
     };
-
 </script>
 
 <!-- CDN files for docsify.-->
@@ -147,7 +127,7 @@
 <script src="//cdn.jsdelivr.net/npm/docsify@latest/lib/docsify.min.js"></script>
 <!-- CDN files for docsify plugins.-->
 <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-<!--<script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>-->
+<script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
 <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
 <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
 <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
@@ -165,21 +145,14 @@
 <script src="//unpkg.com/prismjs/components/prism-java.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-javascript.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-css.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-java.min.js"></script>
 
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
 <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
 
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
 
 
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
-
-<!--    Gitalk评论插件-->
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
 <script>
     // gittalk评论插件
     var gitalk = new Gitalk({
@@ -196,5 +169,114 @@
         distractionFreeMode: true
     })
 </script>
+<style>
+    .content {
+        /*display: flex;*/
+        flex-direction: row-reverse;
+        justify-content: center;
+    }
+    .markdown-section {
+        flex: 1 1 0%;
+        margin: 0 48px;
+        max-width: 70% !important;
+    }
+    .nav {
+        width: var(--toc-width, 200px);
+        align-self: flex-start;
+        flex: 0 0 auto;
+    }
+    aside.nav.nothing {
+        width: 0;
+    }
 
+    .page_toc {
+        position: fixed;
+        right: 20px;
+        border-left-style: solid;
+        border-left-width: 1px;
+        border-left-color: rgba(0, 0, 0, 0.07);
+        border-image-slice: 1;
+        padding-left: 5px;
+    }
+
+    .page_toc code {
+        background-color: #f8f8f8;
+        border-radius: 2px;
+        color: #e96900;
+        font-family: 'Roboto Mono', Monaco, courier, monospace;
+        font-size: 0.8rem;
+        margin: 0 2px;
+        padding: 3px 5px;
+    }
+
+    .page_toc p.title {
+        margin: 0px 0 0px 9px;
+        padding-bottom: 5px;
+        font-weight: 600;
+        font-size: 1.2em;
+    }
+    .page_toc .anchor:hover:after {
+        content: "";
+    }
+
+    .page_toc ul {
+        list-style-type: none;
+        margin-top: 0px;
+        padding-left: 10px;
+        color: var(--text-color-base, black);
+        text-decoration: none;
+        font-weight: 300;
+        line-height: 1.6em;
+    }
+
+    .page_toc ul a:hover span {
+        color: var(--text-color-tertiary, #42b983);
+        border-bottom: none !important;
+        text-decoration:none !important;
+    }
+
+    .page_toc ul a {
+        color: var(--text-color-base, black);
+        text-decoration: none;
+        font-weight: 300;
+        line-height: 1.6em;
+    }
+
+    @media screen and (max-width: 1300px) {
+        .page_toc {
+            position: relative;
+            left: 0;
+            top: -20px;
+            padding: 10px 0;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            font-size: 1.0em;
+        }
+        .page_toc a:before {
+            content: "- ";
+        }
+        .nav {
+            margin: 0 auto;
+            width: 800px;
+        }
+        .page_toc p.title {
+            font-weight: 300;
+            font-size: 1.8em;
+        }
+        .content {
+            display: block;
+        }
+        .markdown-section {
+            margin: 0 auto;
+            max-width: 70% !important;
+        }
+    }
+
+    .page_toc .active {
+        border-left: 5px solid;
+        color: var(--theme-color, #42b983);
+        padding-left: 10px;
+    }
+
+</style>
 </html>
