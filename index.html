@@ -161,14 +161,28 @@
         repo: 'docsify-comment',
         owner: 'csvf',
         admin: ['csvf'],
-        // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
-        // 50个字符串则会报错.
-        id: (location.pathname).split("/").pop().substring(0, 49),
         enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter)
+
+        // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+        // 50个字符串则会报错.  共用一个评论
+        id: (location.pathname).split("/").pop().substring(0, 49),
         title: location.href,
+
+        //每篇文章生成一个评论页面
+        // title: location.hash.match(/#(.*?)([?]|$)/)[1],
+        // id: location.hash.match(/#(.*?)([?]|$)/)[1],
+
         // facebook-like distraction free mode
         distractionFreeMode: true
     })
+
+    // 监听URL中hash的变化，如果发现换了一个MD文件，那么刷新页面，解决整个网站使用一个gitalk评论issues的问题。
+    // window.onhashchange = function(event){
+    //     if(event.newURL.split('?')[0] !== event.oldURL .split('?')[0]) {
+    //         location.reload()
+    //     }
+    // }
+
 </script>
 <style>
     .content {
