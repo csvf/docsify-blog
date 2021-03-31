@@ -21,7 +21,7 @@
 <div id="app">Please wait...</div>
 <script>
     // gittalk评论插件
-    const gitalkConfig = {
+    const gitalk = new Gitalk({
         clientID: 'e8f59aa5f27ae5dba9a6',
         clientSecret: '0d7e74bc3ededd1d0b69726818b98e6069ff842c',
         repo: 'docsify-comment',
@@ -33,7 +33,7 @@
         enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter)
         // facebook-like distraction free mode
         distractionFreeMode: true
-    }
+    })
 
     window.$docsify = {
         //设置封面
@@ -41,42 +41,7 @@
         onlyCover: true,
         //左侧显示标题只显示页内的3级  # ##
         loadSidebar: true,
-        plugins: [
-            // 评论会自动同步成为项目的issue, //这些代码是给issue添加lable以及更改样式 //我的博客是取每个路由地址的第一级目录名称作为label，你可以自己操作路径// ，自己自定义
-            function (hook, vm) {
-                hook.doneEach(function () {
-                    var label='', domObj, main, divEle, gitalk;
-                    var labels = vm.route.path.split('/');
-                    if(labels.length) {
-                        for (let i = 0; i < labels.length; i++) {
-                            var v = labels[i]
-                            if(v && v !=='README') {
-                                label = v
-                                break;
-                            }
-                        }
-                    }
-                    domObj = Docsify.dom;
-                    main = domObj.getNode("#main");
-                    Array.apply(
-                        null,
-                        document.querySelectorAll("div.gitalk-container")
-                    ).forEach(function (ele) {
-                        ele.remove();
-                    });
 
-                    divEle = domObj.create("div");
-                    divEle.id = "gitalk-container-" + label;
-                    divEle.className = "gitalk-container";
-                    divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
-                    domObj.appendTo(domObj.find(".content"), divEle);
-                    gitalk = new Gitalk(
-                        Object.assign(gitalkConfig , {id: !label ? "home" : label})
-                    );
-                    gitalk.render("gitalk-container-" + label);
-                });
-            }
-        ],
 
         subMaxLevel: 3,
         //外链打卡方式
