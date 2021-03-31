@@ -9,27 +9,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
     <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css"/>
-    <!--    Gitalk评论插件-->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
-    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-    <script>
-        // gittalk评论插件
-        const gitalk = new Gitalk({
-            clientID: 'e8f59aa5f27ae5dba9a6',
-            clientSecret: '0d7e74bc3ededd1d0b69726818b98e6069ff842c',
-            repo: 'docsify-comment',
-            owner: 'csvf',
-            admin: ['csvf'],
-            // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
-            // 50个字符串则会报错.
-            id: (location.pathname).split("/").pop().substring(0, 49),
-            enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter)
-            // facebook-like distraction free mode
-            distractionFreeMode: true
-        })
-        gitalk.render('gitalk-container');
-    </script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css">
+    <style>
+        .markdown-section a:not(:hover) {
+            text-decoration: none;
+        }
+        .sidebar {
+            padding-top: 20px;
+        }
+        .sidebar h1 {
+            font-weight: normal;
+        }
+        .sidebar blockquote {
+            margin-left: 12px;
+        }
+        section.content {
+            padding-top: 50px;
+        }
+    </style>
 </head>
 <body>
 <nav>
@@ -44,7 +41,23 @@
         //左侧显示标题只显示页内的3级  # ##
         loadSidebar: true,
         ga: "UA-XXXXX-Y",
+        plugins: [
+            function (hook, vm) {
+                hook.mounted(function() {
+                    var div = Docsify.dom.create('div')
+                    div.id = 'gitalk-container'
+                    var main = Docsify.dom.getNode('#main')
+                    div.style = `width: ${main.clientWidth}px; margin: 0 auto 20px;`
+                    Docsify.dom.appendTo(Docsify.dom.find('.content'), div)
+                })
 
+                hook.doneEach(function() {
+                    var el = document.getElementById('gitalk-container')
+                    while(el.hasChildNodes()) el.removeChild(el.firstChild)
+                    gitalk.render('gitalk-container')
+                })
+            }
+        ],
         subMaxLevel: 3,
         //外链打卡方式
         externalLinkTarget: '_blank',
@@ -149,6 +162,25 @@
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
 
-<div id="gitalk-container"></div>
+<!--    Gitalk评论插件-->
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+<script>
+    // gittalk评论插件
+    const gitalk = new Gitalk({
+        clientID: 'e8f59aa5f27ae5dba9a6',
+        clientSecret: '0d7e74bc3ededd1d0b69726818b98e6069ff842c',
+        repo: 'docsify-comment',
+        owner: 'csvf',
+        admin: ['csvf'],
+        // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+        // 50个字符串则会报错.
+        id: (location.pathname).split("/").pop().substring(0, 49),
+        enableHotKey: true,	// 提交评论快捷键(cmd/ctrl + enter)
+        // facebook-like distraction free mode
+        distractionFreeMode: true
+    })
+    // gitalk.render('gitalk-container');
+</script>
 </body>
 </html>
