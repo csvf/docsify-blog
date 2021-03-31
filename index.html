@@ -24,7 +24,18 @@
             margin-left: 12px;
         }
         section.content {
+            display: block;
+            /*overflow: auto;*/
             padding-top: 50px;
+        }
+        .page_toc {
+            right: 20px;
+        }
+        .markdown-section {
+            max-width: 70%;
+        }
+        #gitalk-container {
+            margin: 0px 20px 0 20px !important;
         }
     </style>
 </head>
@@ -33,6 +44,7 @@
     <a href="#">首页</a>
 </nav>
 <div id="app">Please wait...</div>
+</body>
 <script>
     window.$docsify = {
         //设置封面
@@ -47,7 +59,7 @@
                     var div = Docsify.dom.create('div')
                     div.id = 'gitalk-container'
                     var main = Docsify.dom.getNode('#main')
-                    div.style = `width: ${main.clientWidth}px; margin: 0 auto 20px;`
+                    div.style = `width: ${main.clientWidth}px; margin: 0 20px 0 20px;`
                     Docsify.dom.appendTo(Docsify.dom.find('.content'), div)
                 })
 
@@ -167,7 +179,7 @@
 <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
 <script>
     // gittalk评论插件
-    const gitalk = new Gitalk({
+    var gitalk = new Gitalk({
         clientID: 'e8f59aa5f27ae5dba9a6',
         clientSecret: '0d7e74bc3ededd1d0b69726818b98e6069ff842c',
         repo: 'docsify-comment',
@@ -180,7 +192,6 @@
         // facebook-like distraction free mode
         distractionFreeMode: true
     })
-    // gitalk.render('gitalk-container');
 </script>
-</body>
+
 </html>
