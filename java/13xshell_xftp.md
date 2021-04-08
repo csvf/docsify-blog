@@ -7,7 +7,7 @@ xshell是一个强大的安全终端模拟软件，它支持SSH1、SSH2、TELNET
 ### 1、下载
 下载xshell linux远程连接工具  和  xftp 上传工具安装程序，教育版(免费)，需要填写个人邮箱信息。  
 官网下载地址 [https://www.netsarang.com/zh/free-for-home-school/](https://www.netsarang.com/zh/free-for-home-school/)
-### 2、安装
+### 2、xshell安装
 点击xshell5.exe进行安装，等待一会后，出现以下界面，一直点击下一步  
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210315180333.png)  
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210315180357.png)  
@@ -49,3 +49,27 @@ xshell是一个强大的安全终端模拟软件，它支持SSH1、SSH2、TELNET
 选择刚才建立的用户密钥名称，点击导出，导出到刚才保存的公钥文件夹。    
 导出的时候需要输入刚才设置的用户密钥的密码。    
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210315181527.png)  
+### 4、xftp安装
+点击xftp5.exe进行安装，等待一会后，出现以下界面，一直点击下一步  
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210408134300.png)  
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210408134322.png)  
+选择我接受许可证协议的条款，然后点击下一步  
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210408134342.png)  
+输入用户名，点击下一步  
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210408134405.png)  
+下一步  
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210408134433.png)  
+选择语言，点击安装，等待一会后就可以安装完成了。  
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210408134453.png)  
+### 5、xftp连接配置
+#### 5.1 xshell界面快速启动的xftp
+是直接通过xshell界面快速启动的xftp，不需要输入用户名和密码。  
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210408134620.png)  
+#### 5.1 运行xftp程序
+运行xftp程序，新建会话。  
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210408134641.png)  
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210408134701.png)  
+确定后，点击连接，即可。    
+出现下面的界面，就说明已经连接成功。在权限允许的情况下，可以拖动需要上传的文件到服务器上，   
+也可以将下载的文件拖动到本地进行下载。  
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210408134829.png)  
