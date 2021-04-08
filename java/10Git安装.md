@@ -32,8 +32,23 @@ Git是一款代码版本控制工具。
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210304161447.png)
 12. 如果按照前面的步骤安装下来,那么 git 程序所在的路径已经添加到系统 PATH 中(path就相当于系统自动查找路径列表),  
 所以可以直接在任意路径的 cmd 下执行 git 命令. 如果没有添加,则需要 cd 切换到Git所在的 bin 目录下,才能执行 git 命令.
-
-
-
+## Git常用命令
+1. 创建并且切换至dev分支:  
+   `$ git checkout -b dev`  
+   ```shell script
+   Switched to a new branch 'dev' 
+   ```
+   git checkout命令加上-b参数表示创建并切换，相当于以下两条命令:   
+   `$ git branch dev`  
+   `$ git checkout dev`  
+   ```shell script
+   Switched to branch 'dev'
+    ```  
+2. 查看当前分支:
+  `$ git branch`  
+   ```shell script
+   *dev  
+    master 
+   ``` 
 
 
