@@ -185,10 +185,46 @@ Atomic 通常用于多线安全的序列生成器，计数器，累加器。
 * `SingleThreadExecutor`单线程    
 `es.submit(new Thread());` 提交一个任务到线程池。   
 `es.shutdown()`关闭线程池。   
+### ScheduledThreadPool 定时任务
+* 一个ScheduledThreadPool可以定时调度多个任务。 
+* java.util.timer 也可以启动一个定时任务， 但是每个timer只能启动一个定时任务，多个定时任务需要启动多个Timer。 
+* Fixed Rate 每间隔一定时间就执行，不管线程是否执行完成。
+* Fixed Delay 线程执行完成后 间隔一定时间再执行。
+### Future 获取异步返回的结果
+* 线程不需要返回值时实现 Runable接口 ；需要返回值时 实现 Callable接口， 返回Future对象。
+* 当以一个线程有返回值时 需要 实现Callable<返回值的类型> 接口。
+* 返回值用 Future<返回值类型>接收 。
+```java 
+       ExecutorService executor = Executors.newFixedThreadPool(4); //创建线程池
+       Callable<String> thread1 = new Thread();
+       Future<String> future = executor.submit(thread1);
+       String result = future.get();  //获得线程执行完成后的返回结果。 {get()方法获取时 可能会阻塞}
+```
+  * `CompletableFuture`  静态方法`supplyAsync()` 创建对象
+  * 当异步线程正常返回时`thenAccept()`处理正常结果。 当异步线程异常时调用`exceptional()`  比直接`get`更加优雅。  
+  * 需要继承自`Supplier`对象。重写`get()`方法。
+  * 可以串行执行 继续调用 `thenApplyAsync`  重复此步骤
+  * 最后 调用`thenAccept` 获得操作结果。     
+   
+!>`CompletableFuture` 用在两个线程`串行`执行中，    
+      例如 查询证券指数的code 是一个线程A 和 根据code获取价格是一个线程B，则可以A执行完传递给B   
+      继续执行最终 获得 code+价格。 `Completable.thenApplyAsync()` 用于串行执行另一个`CompletableFuture`   
+      
+!> `CommpletableFuture` 也可以用在`并行`执行中，    
+      例如从新浪或者网易获取到价格就继续执行， 从新浪获取时一个线程A 从网易获取是线程B 哪一个先返回结果，则继续执行C。    
+      `CompletableFuture.anyof()` 任何一个异步流程有返回 `Completable.allof()`全部异步流程返回时;   
 
-
-
-
+### fork/join 模式    
+* fork/join 线程池可以把一个大任务拆分成多个小任务。   
+  继承`RecusiveTask`类 重写 `compute()`方法。   
+  大任务拆分成2小任务， 调用 `invoke(A,B)` 同时调用两个小任务。   
+  `Long result1= fork1.join();`  
+  `Long  result2=fork2.join();`  
+  `return  result1+result2;`   
+### 序列化
+   * 是指把类转换为二进制的文件，可以保存在内存或者磁盘，通过反序列化也可以把文件转为类。
+   * 对于不想序列化的变量使用`transient`关键字修饰。  
+   * `native`修饰的方法是`Jvm自动调用`的，`无法通过程序调用`。  
 
 ## 线程及线程池
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210305163037.png)  
