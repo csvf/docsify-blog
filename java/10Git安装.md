@@ -32,8 +32,8 @@ Git是一款代码版本控制工具。
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210304161447.png)
 12. 如果按照前面的步骤安装下来,那么 git 程序所在的路径已经添加到系统 PATH 中(path就相当于系统自动查找路径列表),  
 所以可以直接在任意路径的 cmd 下执行 git 命令. 如果没有添加,则需要 cd 切换到Git所在的 bin 目录下,才能执行 git 命令.
-## Git常用命令
-1. 创建并且切换至dev分支:  
+## 三、Git常用命令
+13. 创建并且切换至dev分支:  
    `$ git checkout -b dev`  
    ```shell script
    Switched to a new branch 'dev' 
@@ -44,26 +44,28 @@ Git是一款代码版本控制工具。
    ```shell script
    Switched to branch 'dev'
     ```  
-2. 查看当前分支:
-  `$ git branch`  
+14. 查看当前分支:  
+  `$ git branch`      
    ```shell script
-   *dev  
-    master 
-   ``` 
-   git branch命令会列出所有分支，当前分支前面会标一个*号。  
-   然后，我们就可以在dev分支上正常提交，比如对readme.txt做个修改，加上一行：  
+      *dev  
+      master 
+   ```
+   `git branch`命令会列出所有分支，当前分支前面会标一个*号。   
+   然后，我们就可以在dev分支上正常提交，比如对`readme.txt`做个修改，加上一行：   
    `Creating a new branch is quick.`  
-3. 提交当本地仓库: 
+15. 提交当本地仓库:   
    `git add readme.txt`  
    ` git commit -m "branch test" `  
+    ```
     [dev b17d20e] branch test 1 file changed, 1 insertion(+)   
-4. 推送到远程仓库:  
+    ```
+16. 推送到远程仓库:  
    `git push --set-upstream origin dev`  
    
-5. 切换分支:
+17. 切换分支:  
    `git checkout master`  
    ``` Switched to branch 'master'  ```   
-6. 合并dev成果到master分支上:
+18. 合并dev成果到master分支上:  
    `git merge dev`   
    ```
     Updating d46f35e..b17d20e
@@ -76,7 +78,7 @@ Git是一款代码版本控制工具。
     注意到上面的`Fast-forward`信息，`Git`告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，  
     所以合并速度非常快。当然，也不是每次合并都能`Fast-forward`，我们后面会讲其他方式的合并。  
     合并完成后，就可以放心地删除dev分支了。  
-7.  删除dev分支:   
+19.  删除dev分支:   
     `git branch -d dev`  
     ```shell script
     Deleted branch dev(was b17d20e)
@@ -85,10 +87,11 @@ Git是一款代码版本控制工具。
     `git branch `   
     ```shell script
     * master
-    ```
-8. 因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，   
+    ```  
+20. 分支说明:  
+   因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，   
    这和直接在master分支上工作效果是一样的，但过程更安全。  
-9. 小结:   
+21. 小结:   
    Git鼓励大量使用分支：   
    * 查看分支：`git branch`  
    * 创建分支：`git branch <name>`
@@ -96,3 +99,4 @@ Git是一款代码版本控制工具。
    * 创建+切换分支：`git checkout -b <name>`或者`git switch -c <name>`
    * 合并某分支到当前分支：`git merge <name>`
    * 删除分支：`git branch -d <name>`
+
