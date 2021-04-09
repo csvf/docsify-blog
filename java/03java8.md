@@ -202,7 +202,7 @@ Apple a3 = c23.apple("green", 100);
 BiFunction<Integer, Apple> c3 = (String color, Integer weight) -> new Apple(color, weight);
 Apple a3 = c3.apple("green", 100);
 ```
-###16.  List 可用的 sort 方法  
+### 16.  List 可用的 sort 方法  
 Java 8的API已经为你提供了一个 `List` 可用的 `sort` 方法 `sort` 的行为被参数化了，自己定义排序参数如下:   
 ```java 
 apples.sort(new Comparator<Apple>() {
