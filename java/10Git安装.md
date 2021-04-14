@@ -99,4 +99,9 @@ Git是一款代码版本控制工具。
    * 创建+切换分支：`git checkout -b <name>`或者`git switch -c <name>`
    * 合并某分支到当前分支：`git merge <name>`
    * 删除分支：`git branch -d <name>`
+22. 修改提交Git显示的git用户名
+   * 找到`project`项目根路径，右键`git bash here`;
+   * `git config`
+   * `git config user.name  "你的名字" ;` //这时候会显示已更改的名字
+   * 也可以在 `idea` 的`Terminal命令窗`下执行。
 
