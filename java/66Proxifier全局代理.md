@@ -18,8 +18,8 @@
 而不会访问任何法律法规不允许的其它应用服务。
 ### 1. 配置代理服务
 点击左上角的服务器配置按钮  
-![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210415135006.png)  
-如下图所示，点击Add，添加代理服务器地址127.0.0.1（代表本地地址）配置代理服务器(可以是https socks5 socks4 等协议)中设置的本地端口，代理服务器端口1080  
+![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210415135006.png)    
+如下图所示，点击Add，添加代理服务器地址127.0.0.1（代表本地地址）配置代理服务器(可以是https socks5 socks4 等协议)中设置的本地端口，代理服务器端口1080    
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210415134333.png)    
 配置好后，点击Check，如果显示成功，则表示配置正确：  
 ![](https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/20210415134540.png)  
