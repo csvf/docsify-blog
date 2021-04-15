@@ -7,7 +7,7 @@
   * [TortoiseGit](java/11TortoiseGit安装 "TortoiseGit安装")
   * [SSH秘钥配置](java/12SSH秘钥配置 "SSH秘钥配置")
   * [xshell_xftp](java/13xshell_xftp "xshell_xftp安装配置")
-  * [xshell_xftp](java/66Proxifier全局代理 "Proxifier全局代理")
+  * [Proxifier](java/66Proxifier全局代理 "Proxifier全局代理")
 * 笔记vs面试
   * [java基础](java/01java基础 "java入门")
   * [juc多线程](java/02juc多线程 "并发编程")
