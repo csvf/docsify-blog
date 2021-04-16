@@ -6,5 +6,5 @@
 
 - 个人文档网站,部分内容收集来自网络，侵联删除。
 
-[进入博客](helloword)
+[进入博客](helloword.md)
 [Getting Started]()
