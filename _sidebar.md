@@ -1,6 +1,6 @@
 * [主页](helloword)
 * 工具安装
-  * [JDK](java/07jdk_install "jdk安装")
+  * [JDK](java/07jdk_install.md "jdk安装")
   * [Tomcat](java/08tomcat_install "tomcat安装")
   * [MAVEN](java/09maven_install "MAVEN安装")
   * [Git](java/10git_install "Git安装")
