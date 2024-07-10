@@ -8,17 +8,17 @@
          ·
          <span>
              <img src="https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/envelope-solid.svg" width="18px">
-             809044093@qq.com
+             <a href="mailto:809044093@qq.com">809044093@qq.com</a>
          </span>
          ·
          <span>
              <img src="https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/github-brands.svg" width="18px">
-             <a href="https://github.com/csvf">csvf</a>
+             <a href="https://github.com/csvf" target="_blank">csvf</a>
          </span>
          ·
          <span>
              <img src="https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/rss-solid.svg" width="18px">
-             <a href="https://blog.csdn.net/prefectjava">My Blog</a>
+             <a href="https://blog.csdn.net/prefectjava" target="_blank">My Blog</a>
          </span>
      </div>
  </center>
