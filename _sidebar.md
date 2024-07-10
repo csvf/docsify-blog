@@ -20,6 +20,5 @@
 * 项目管理
 * 随笔归档
 * [todo清单](java/todo_list.md "待办清单")
-* 个人简历
+* [个人简历](java/14resume_cv.md "个人简历")
 * [赞助推广](java/80sponsor_promotion.md "赞助推广")
-  
