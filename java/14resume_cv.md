@@ -32,11 +32,11 @@
 
 ## <img src="https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/graduation-cap-solid.svg" width="30px"> 教育经历
 
-- 硕士，皇家国际大学，工商管理(MBA)专业，2022.09~2024.01
-- 学士，聊城大学，地理信息系统(GIS)专业，2006.09~2010.07
+- 研究生/硕士，皇家国际大学，工商管理(MBA)专业，2022.09~2024.01
+- 大学本科/学士，聊城大学，地理信息系统(GIS)专业，2006.09~2010.07
 - 绩点(GPA)：3.6
-- 通过了 CET4 英语等级考试
-
+-  CET4 英语等级考试
+-  计算机二级证书(MS Office)
 ## <img src="https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/briefcase-solid.svg" width="30px"> 工作经历
 
 - **涉及电子政务、通信、能源、电力等行业从事过市场监督管理局、浪潮、中国移动、中国联通、中国电信、中国铁塔、山东能源等政企的信息化系统建设工作。**
@@ -59,6 +59,7 @@
 ## <img src="https://cdn.jsdelivr.net/gh/csvf/imagehost/imgs/tools-solid.svg" width="30px"> 证书清单
 - ★ 工程技术-助理工程师职称
 - ★ 大数据工程-中级工程师职称
+- ★ 计算机程序设计员（高级）职业技能等级证书
 - ★ 系统集成项目管理工程师
 - ★ PMP®(项目管理专业人士资格认证)
 
